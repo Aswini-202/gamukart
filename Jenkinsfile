@@ -16,7 +16,7 @@ pipeline {
 	}	
 	 stage('Deploy') {
             steps {
-                sshagent(credentials: ['your-ssh-credential-id']) {
+                sshagent(credentials: ['Aswini-202']) {
                     sh 'scp -o StrictHostKeyChecking=no target/gamutkart.war root@10.0.0.10:/opt/tomcat/webapps
 '
 	    }
