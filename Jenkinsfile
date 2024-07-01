@@ -14,10 +14,10 @@ pipeline {
 			sh 'mvn install'
 		}
 	}	
-	stage('Deploy') {
-	   steps {
-	    sshagent(['ssh-key-for-deploy']) {
-		sh 'scp -o StrictHostKeyChecking=no target/gamutkart.war root@10.0.0.10:/opt/tomcat/webapps'
+	 stage('Deploy') {
+            steps {
+                sshagent(credentials: ['your-ssh-credential-id']) {
+                    sh 'scp -o StrictHostKeyChecking=no target/gamutkart.war root@10.0.0.10:/opt/tomcat/webapps'
 	    }
 	}
     }
